@@ -9,7 +9,7 @@ This application aims to give every possible solution to the folowing vietnamese
 ⏯️ Run following command :
 `docker-compose up --build`
 
-⚠️ CORS Errors still to be resolved
+⚠️ CORS Errors still to be resolved when using docker-compose
 
 
 ## Launch project locally
