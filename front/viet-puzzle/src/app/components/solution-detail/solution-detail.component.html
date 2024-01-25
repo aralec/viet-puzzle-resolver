@@ -1,0 +1,139 @@
+<p-toast position="top-right"></p-toast>
+<form [formControl]="form">
+  <button
+    pButton
+    pRipple
+    icon="pi pi-arrow-left"
+    class="p-button-outlined mb-5"
+    (click)="back()"
+  ></button>
+  <h4>
+    Solution ID : {{ solution?.id }}
+    @if (solution?.state === "CORRECT") {
+    <p-tag
+      severity="success"
+      class="ml-3"
+      [value]="solution?.state"
+      [rounded]="true"
+    ></p-tag>
+    } @else if (solution?.state === "INCORRECT") {
+    <p-tag
+      severity="danger"
+      class="ml-3"
+      [value]="solution?.state"
+      [rounded]="true"
+    ></p-tag>
+    }
+  </h4>
+  <div class="formgrid grid">
+    <div class="field col max-w-5rem">
+      <label for="a">a</label>
+      <input
+        id="a"
+        type="number"
+        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        [(ngModel)]="a"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <div class="mt-5 font-bold">+ (13 x</div>
+    <div class="field col max-w-5rem">
+      <label for="b">b</label>
+      <input
+        id="b"
+        type="number"
+        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        [(ngModel)]="b"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <div class="mt-5 font-bold">) /</div>
+    <div class="field col max-w-5rem">
+      <label for="c">c</label>
+      <input
+        id="c"
+        type="number"
+        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        [(ngModel)]="c"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <div class="mt-5 font-bold">+</div>
+    <div class="field col max-w-5rem">
+      <label for="d">d</label>
+      <input
+        id="d"
+        type="number"
+        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        [(ngModel)]="d"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <div class="mt-5 font-bold">+ (12 *</div>
+    <div class="field col max-w-5rem">
+      <label for="e">e</label>
+      <input
+        id="e"
+        type="number"
+        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        [(ngModel)]="e"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <div class="mt-5 font-bold">) -</div>
+    <div class="field col max-w-5rem">
+      <label for="f">f</label>
+      <input
+        id="f"
+        type="number"
+        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        [(ngModel)]="f"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <div class="mt-5 font-bold">- (11 +</div>
+    <div class="field col max-w-5rem">
+      <label for="g">g</label>
+      <input
+        id="g"
+        type="number"
+        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        [(ngModel)]="g"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <div class="mt-5 font-bold">*</div>
+    <div class="field col max-w-5rem">
+      <label for="h">h</label>
+      <input
+        id="h"
+        type="number"
+        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        [(ngModel)]="h"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <div class="mt-5 font-bold">) /</div>
+    <div class="field col max-w-5rem">
+      <label for="i">i</label>
+      <input
+        id="i"
+        type="number"
+        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        [(ngModel)]="i"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <div class="mt-5 font-bold">- 10 = 66</div>
+  </div>
+  <div class="inline right">
+    <button
+    pButton
+    pRipple
+    icon="pi pi-save"
+    label="Enregistrer"
+    class="p-button-success mt-5"
+    (click)="onSave()"
+  ></button>
+  </div>
+</form>

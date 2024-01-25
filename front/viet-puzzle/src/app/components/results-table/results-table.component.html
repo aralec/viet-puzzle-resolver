@@ -1,0 +1,97 @@
+<p-toast position="top-right"></p-toast>
+<p-confirmPopup></p-confirmPopup>
+<h1>Solutions du casse-tête</h1>
+
+<p>Temps de génération : {{ generationTime }} ms</p>
+
+<div class="grid m-1 mb-2">
+  <button
+    pButton
+    pRipple
+    icon="pi pi-plus"
+    label="Générer"
+    class="p-button-small m-1"
+    (click)="generateSolutions()"
+  ></button>
+  <button
+    pButton
+    pRipple
+    icon="pi pi-trash"
+    label="Tout supprimer"
+    class="p-button-danger m-1"
+    [disabled]="solutions.length == 0"
+    (click)="onDeleteAll($event)"
+  ></button>
+</div>
+
+<div>
+  <p-table
+    #dt
+    [value]="solutions"
+    [paginator]="true"
+    [rows]="4"
+    [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 5%">ID</th>
+        <th style="width: 45%">Solution</th>
+        <th style="width: 10%">Statut</th>
+        <th style="width: 2%"></th>
+        <th style="width: 2%"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-solution>
+      <tr>
+        <td>{{ solution.id }}</td>
+        <td>{{ formatSolution(solution.id) }}</td>
+        <td>
+          @if (solution?.state === "CORRECT") {
+          <p-tag
+            severity="success"
+            class="ml-3"
+            [value]="solution?.state"
+            [rounded]="true"
+          ></p-tag>
+          } @else if (solution?.state === "INCORRECT") {
+          <p-tag
+            severity="danger"
+            class="ml-3"
+            [value]="solution?.state"
+            [rounded]="true"
+          ></p-tag>
+          }
+        </td>
+        <td>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-outlined"
+            [pTooltip]="'Editer'"
+            (click)="onEdit(solution.id)"
+          ></button>
+        </td>
+        <td>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-times"
+            class="p-button-outlined"
+            [pTooltip]="'Supprimer'"
+            (click)="onDelete($event, solution.id)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage" let-c>
+      <td></td>
+      <td><i>Aucune solution générée.</i></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </ng-template>
+  </p-table>
+</div>

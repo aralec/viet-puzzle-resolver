@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+    backend:
+        image: backend
+        container_name: backend
+        build:
+            context: ./back/viet-puzzle-back/demo
+        ports:
+            - "9966:80"
+    frontend:
+        image: frontend
+        container_name: frontend
+        build:
+            context: ./front/viet-puzzle
+        ports:
+            - "4200:80"
+        depends_on:
+            - backend
