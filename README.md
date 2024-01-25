@@ -2,7 +2,7 @@
 
 This application aims to give every possible solution to the folowing vietnamese puzzle :
 
-[puzzle](misc/1260444903470449959.webp)
+[puzzle](misc/1260444903470449959.png)
 
 ## Launch project using Docker Compose
 
